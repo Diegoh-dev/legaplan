@@ -17,3 +17,16 @@ body {
   padding: 0;
   margin: 0;
 }
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(90deg, #0796D3 0%, #53C0F0 68.65%);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}

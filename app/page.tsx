@@ -12,7 +12,14 @@ export default function Home() {
       <div className={styles.cardContainer}>
       <p className={styles.title}>Suas tarefas de hoje</p>
       <Card/>
+      <p className={styles.title}>Tarefas finalizadas</p>
       </div>
+
+      <button className={styles.button}>
+        <span>
+      Adicionar nova tarefa
+        </span>
+      </button>
       </main>
  
     </div>

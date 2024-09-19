@@ -4,13 +4,14 @@
     .main{
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-top: 40px;
 
         .cardContainer{
             border: 1px solid  rgba(234, 236, 240, 1);
-            width: 350px;
+            width: 450px;
             box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
             min-height: 400px;
             border-radius: 16px;
@@ -27,9 +28,34 @@
                 line-height: 19.36px;
                 letter-spacing: -0.02em;
                 color: rgba(0, 0, 0, 0.54);
-                ;
+     
+              
 
             }
+
+            
+            
+        }
+
+        .button{
+            width: 450px;
+            height: 51px;
+            padding: 16px 24px 16px 24px;
+            border-radius: 8px ;
+            outline: none;
+            border: none;
+            margin-top: 24px;
+            background: linear-gradient(90deg, #0796D3 0%, #53C0F0 68.65%);
+            cursor: pointer;
+
+            span{
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 19.36px;
+                letter-spacing: -0.02em;
+                color: #fff;
+            }
+
         }
     }
 }

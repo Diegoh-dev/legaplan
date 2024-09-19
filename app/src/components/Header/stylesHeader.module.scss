@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    .logo{
+        display: flex;
+        gap: 10px;
+
+        h1{
+            width: 106.14px;
+            height: 15.5px;
+            top: 10.21px;
+            left: 43.6px;
+            gap: 0px;
+            opacity: 0px;
+
+        }
+    }
+
+    .message{
+        // font-family: Inter Tight;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29.04px;
+        letter-spacing: -0.02em;
+        
+    }
+
+    .data{
+        color: rgba(0, 0, 0, 0.54);
+        // font-family: Inter Tight;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+        letter-spacing: -0.02em;
+        
+    }
+}
+
+
+.row{
+    border-bottom: 1px;
+    background-color:rgba(215, 221, 233, 1);
+    height: 1px;
+    width: 100%;
+    margin-top: 24px;
+    
+
+    // color: rgba(215, 221, 233, 1);
+}

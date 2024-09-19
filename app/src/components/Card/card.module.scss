@@ -1,0 +1,18 @@
+.card{
+    padding: 16px;
+    border: 1px dashed rgba(215, 221, 233, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    gap: 16px;
+    cursor: pointer;
+    width: 100%;
+    
+    :hover{
+        background-color: rgba(247, 249, 253, 1);
+    };
+
+
+    
+}

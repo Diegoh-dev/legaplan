@@ -7,6 +7,7 @@ export function Card() {
   const [openModal,setOpenModal] = useState(false);
   return (
     <>
+    {/* colocar uma posição relativa a  ModalComponent*/}
      {openModal && (
         <>
           <div className={styles.overlay}></div>

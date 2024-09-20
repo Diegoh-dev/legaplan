@@ -7,6 +7,7 @@ import { ModalComponent } from "./src/components/Modal/ModalComponent";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
+  const [openModalDelete, setOpenModalDelete] = useState(false);
   return (
     <>
       {openModal && (
@@ -21,6 +22,19 @@ export default function Home() {
            />
         </>
       )}
+
+{openModalDelete && (
+        <>
+          <div className={styles.overlay}></div>
+          <ModalComponent 
+          open={openModalDelete} 
+          setOpenModal={setOpenModalDelete}
+           title="Deletar tarefa" 
+           isDelete={true}
+           nameButton="Deletar"
+           />
+        </>
+      )}
       <div
         className={`${styles.container} `}
         style={{
@@ -32,7 +46,7 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.cardContainer}>
             <p className={styles.title}>Suas tarefas de hoje</p>
-            <Card />
+            <Card setOpenModalDelete={setOpenModalDelete}/>
             <p className={styles.title}>Tarefas finalizadas</p>
           </div>
 

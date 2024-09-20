@@ -1,0 +1,76 @@
+.container{
+    position: absolute;
+    margin: 0 auto;
+    width: 450px;
+    // height: 286px;
+    padding: 32px;
+    z-index: 1000;
+    border-radius: 16px;
+    box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+    background: rgba(255, 255, 255, 1);
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.containerInputs{
+    display: flex;
+    flex-direction: column;
+
+    label{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+        letter-spacing: -0.02em;
+        color: rgba(0, 0, 0, 1);
+        margin: 32px 0 8px 0;
+    }
+
+    input{
+        width: 386px;
+        height: 51px;
+        border: 1px solid rgba(215, 221, 233, 1);
+        padding: 16px;
+        border-radius: 8px ;
+        outline: none;
+        margin-bottom: 32px;
+    }
+}
+
+.containerButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .buttons,.cancel,.add,.remove{
+        width: 185px;
+        height: 51px;
+        padding: 16px 24px 16px 24px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+
+        font-weight: 400;
+        line-height: 19.36px;
+        letter-spacing: -0.02em;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 1);
+        font-size: 16px;
+        
+
+    }
+
+    .cancel{
+       background: rgba(231, 238, 251, 1); 
+       color:rgba(0, 0, 0, 1) ;
+    }
+
+    .add{
+        background: linear-gradient(90deg, #0796D3 0%, #53C0F0 68.65%);
+    }
+
+    .remove{
+        background: linear-gradient(90deg, #D30707 0%, #F05353 68.65%);
+    }
+}

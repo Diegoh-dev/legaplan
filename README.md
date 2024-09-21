@@ -3,7 +3,7 @@
 
 
 
-<img src="./public/assets/deletar.png" alt="eletar">
+<img src="./public/assets/deletar.png" alt="deletar">
 <img src="./public/assets/listatarefa.png" alt="listatarefa">
 <img src="./public/assets/novatarefa.png" alt="novatarefa">
 

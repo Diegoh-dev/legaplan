@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import { Modal } from "./modal";
 import styles from "./styleModal.module.scss";
 interface Props {
@@ -6,7 +6,11 @@ interface Props {
   setOpenModal: Dispatch<SetStateAction<boolean>>;
   title: "Nova tarefa" | "Deletar tarefa";
   isDelete: boolean;
-  nameButton:'Adicionar' | 'Deletar';
+  nameButton: "Adicionar" | "Deletar";
+  FnConfirmation: () => void;
+  setNewTask: Dispatch<SetStateAction<string>>;
+  newTask: string;
+  isDeleteCompleted?:boolean;
 }
 export function ModalComponent({
   open,
@@ -14,19 +18,33 @@ export function ModalComponent({
   title,
   isDelete = false,
   nameButton,
+  FnConfirmation,
+  newTask,
+  setNewTask,
+  isDeleteCompleted,
 }: Props) {
+  useEffect(() => {
+    document.getElementById("titulo")?.focus();
+  }, [open]);
+
   return (
     <>
       {open && (
         <Modal.Container>
           <Modal.TitleComponents title={title} />
           <Modal.ContentComponent>
-            {isDelete ? (
+            {isDelete || isDeleteCompleted ? (
               <Modal.MessageComponent message="Tem certeza que você deseja deletar essa tarefa?" />
             ) : (
               <div className={styles.containerInputs}>
                 <label htmlFor="titulo">Título</label>
-                <input type="text" id="titulo" placeholder="Digite" />
+                <input
+                  onChange={(e) => setNewTask(e.target.value)}
+                  type="text"
+                  id="titulo"
+                  placeholder="Digite"
+                  value={newTask}
+                />
               </div>
             )}
           </Modal.ContentComponent>
@@ -38,7 +56,14 @@ export function ModalComponent({
             >
               Cancelar
             </Modal.ActionButton>
-            <Modal.ActionButton className={ nameButton === 'Adicionar' ? styles.add : styles.remove}>
+            <Modal.ActionButton
+              className={
+                nameButton === "Adicionar" ? styles.add : styles.remove
+              }
+              onClick={() => {
+                FnConfirmation();
+              }}
+            >
               {nameButton}
             </Modal.ActionButton>
           </div>

@@ -8,7 +8,8 @@ import { ModalComponent } from "./src/components/Modal/ModalComponent";
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [openModalDelete, setOpenModalDelete] = useState(false);
-  const [openModalDeleteCompleted, setOpenModalDeleteCompleted] = useState(false);
+  const [openModalDeleteCompleted, setOpenModalDeleteCompleted] =
+    useState(false);
   const [tasks, setTasks] = useState<string[]>([]);
   const [tasksCompleted, setTasksCompleted] = useState<string[]>([]);
   const [newTask, setNewTask] = useState("");
@@ -23,83 +24,31 @@ export default function Home() {
     }
   }
 
-  const removeTask = (index: number,lista:string[]) => {
-    console.log('caiu')
-    if(index == 0){
-      lista.splice(0,1);
-    }
+  const removeTask = (index: number, lista: string[]) => {
     const updatedTasks = lista.filter((_item, i) => i !== index);
-    // const updatedTasksCompleted = tasks.filter((_item, i) => i == index);
-//Inter Tight
-    if(openModalDelete){
+
+    if (openModalDelete) {
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
 
-    if(openModalDeleteCompleted){
+    if (openModalDeleteCompleted) {
       setTasksCompleted(updatedTasks);
       localStorage.setItem("tasksCompleted", JSON.stringify(updatedTasks));
-
     }
 
-    // setTasksCompleted([...tasksCompleted, ...updatedTasksCompleted]);
-    // localStorage.setItem(
-    //   "tasksCompleted",
-    //   JSON.stringify(updatedTasksCompleted)
-    // );
-    // localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     setOpenModalDelete(false);
     setOpenModalDeleteCompleted(false);
     setTaskToDelete(null);
   };
 
-
-  // const removeTask = (index: number, lista: string[]) => {
-  //   // Verifique se o índice é válido
-  //   if (index >= 0 && index < lista.length) {
-  //     const updatedTasks = lista.filter((_item, i) => i !== index); // Remove a tarefa no índice fornecido
-  
-  //     // Atualiza a lista de tarefas pendentes
-  //     if (openModalDelete) {
-  //       setTasks(updatedTasks);
-  //       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  //     }
-  
-  //     // Atualiza a lista de tarefas completadas
-  //     if (openModalDeleteCompleted) {
-  //       setTasksCompleted(updatedTasks);
-  //       localStorage.setItem("tasksCompleted", JSON.stringify(updatedTasks));
-  //     }
-  
-  //     // Fecha os modais e reseta a tarefa a ser deletada
-  //     setOpenModalDelete(false);
-  //     setOpenModalDeleteCompleted(false);
-  //     setTaskToDelete(null);
-  //   } else {
-  //     console.warn("Índice fora dos limites");
-  //   }
-  // };
-  
-
   useEffect(() => {
     const tasksStorage = localStorage.getItem("tasks");
-    // const tasksCompletedStorage = localStorage.getItem("tasksCompleted");
     if (tasksStorage) {
       const storedTasks = JSON.parse(tasksStorage) || [];
       setTasks(storedTasks);
     }
-
-    // if (tasksCompletedStorage) {
-    //   const storedTasks = JSON.parse(tasksCompletedStorage) || [];
-    //   if
-    //   setTasksCompleted(storedTasks);
-    // }
-    
   }, []);
-
-  console.log({
-    taskToDelete
-  })
 
   return (
     <>
@@ -131,7 +80,7 @@ export default function Home() {
             nameButton="Deletar"
             FnConfirmation={() => {
               if (taskToDelete) {
-                removeTask(taskToDelete,tasks);
+                removeTask(taskToDelete, tasks);
               }
             }}
             newTask={newTask}
@@ -140,9 +89,7 @@ export default function Home() {
         </>
       )}
 
-      {/* /// */}
 
-      
       {openModalDeleteCompleted && (
         <>
           <div className={styles.overlay}></div>
@@ -163,7 +110,7 @@ export default function Home() {
           />
         </>
       )}
-      
+
       <div
         className={`${styles.container} `}
         style={{

@@ -10,7 +10,7 @@ interface Props {
   FnConfirmation: () => void;
   setNewTask: Dispatch<SetStateAction<string>>;
   newTask: string;
-  isDeleteCompleted?:boolean;
+  isDeleteCompleted?: boolean;
 }
 export function ModalComponent({
   open,

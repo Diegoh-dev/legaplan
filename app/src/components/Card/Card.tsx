@@ -9,7 +9,7 @@ interface Props {
   setTaskToDelete: Dispatch<SetStateAction<number | null>>;
   isDelete: boolean;
   setTasksCompleted?: Dispatch<SetStateAction<string[]>>;
-  tasksCompleted:string[];
+  tasksCompleted: string[];
   setOpenModalDeleteCompleted: Dispatch<SetStateAction<boolean>>;
 }
 export function Card({
@@ -34,26 +34,20 @@ export function Card({
       const storedTasks = JSON.parse(tasksCompletedStorage) || [];
       setTasksCompleted(storedTasks);
     }
-
   }, []);
 
-  function FnTaskCompleted(index:number,taskChecked:string) {
-    // const updatedTasksCompleted = tasks.filter((_item, i) => i == index);
-    // console.log('updatedTasksCompleted:',updatedTasksCompleted)
-    // console.log('tasksCompleted:',tasksCompleted)
-
-    if(setTasksCompleted){
+  function FnTaskCompleted(index: number, taskChecked: string) {
+    if (setTasksCompleted) {
       setTasksCompleted([...tasksCompleted, taskChecked]);
       localStorage.setItem(
         "tasksCompleted",
         JSON.stringify([...tasksCompleted, taskChecked])
       );
 
-     const updatedTasks = tasks.filter((_item, i) => i !== index);
+      const updatedTasks = tasks.filter((_item, i) => i !== index);
 
-     setTasks(updatedTasks);
-     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
+      setTasks(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
   }
 
@@ -68,15 +62,13 @@ export function Card({
           >
             <div className={styles.input}>
               <input
-                // disabled={isDelete}
-                
+                disabled={isDelete}
                 type="checkbox"
                 id={tasksItens}
                 defaultChecked={isDelete}
                 onChange={() => {
-                  console.log("mudou");
-                  if(!isDelete){
-                    FnTaskCompleted(index,tasksItens);
+                  if (!isDelete) {
+                    FnTaskCompleted(index, tasksItens);
                   }
                 }}
               />
@@ -92,12 +84,12 @@ export function Card({
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                if(isDelete){
+                if (isDelete) {
                   setOpenModalDeleteCompleted(true);
-                }else{
+                } else {
                   setOpenModalDelete(true);
                 }
-             
+
                 setTaskToDelete(index);
               }}
             >
